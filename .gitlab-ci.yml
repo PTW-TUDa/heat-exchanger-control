@@ -1,0 +1,116 @@
+stages:
+  - setup
+  - check
+  - test
+  - deploy
+
+# The workflow determines when a pipeline is run
+workflow:
+  rules:
+    # Don't create a merge request pipeline for the default branch
+    - if:  $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == $CI_DEFAULT_BRANCH
+      when: never
+    # Instead, create a branch pipeline for development
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    # Create merge request pipeline for other branches
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    # Create a pipeline for tags
+    - if: $CI_COMMIT_TAG
+
+
+
+.on_version_tag_rule:
+  rules:
+    # Deploy if a version tag was created, e.g. v1.0.0
+    - if: '$CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+$/'
+
+# Additional environment variables
+variables:
+  # Poetry settings
+  POETRY_VERSION: 2.1.1
+  POETRY_HOME: /usr/local
+  POETRY_NO_INTERACTION: 1
+  POETRY_VIRTUALENVS_IN_PROJECT: true
+  POETRY_CACHE_DIR: /root/.cache/pypoetry
+  # Pip settings
+  PIP_NO_CACHE_DIR: off
+  PIP_DISABLE_PIP_VERSION_CHECK: on
+  PIP_CACHE_DIR: /root/.cache/pip
+
+
+# Default settings for jobs
+default:
+  tags:
+    - python
+    - docker
+  interruptible: true
+  image: python:3.11
+  before_script:
+    - python --version
+    - ls -la
+    - pip install poetry==$POETRY_VERSION
+    - poetry sync
+    - $(poetry env activate)  # Activate virtual environment
+  cache:
+    key: "global-deps-$(checksum poetry.lock)"
+    paths:
+      - ${POETRY_CACHE_DIR}
+      - ${PIP_CACHE_DIR}
+    policy: pull
+
+# Job to update dependency cache for pipeline
+update-cache:
+  stage: setup
+  script: echo Updating cache
+  # Allow this job to push to the cache
+  cache:
+    policy: pull-push
+  dependencies: []
+
+
+poetry:
+  stage: check
+  script:
+    - poetry --version
+    - poetry check
+
+ruff:
+  stage: check
+  script:
+    - ruff --version
+    - ruff check
+    - ruff format --check
+
+codespell:
+  stage: check
+  script:
+    - codespell --version
+    - codespell
+
+# mypy:
+#   stage: check
+#   script:
+#     - mypy --version
+#     - mypy --config-file pyproject.toml
+
+test:
+  stage: test
+  # Regex for parsing coverage from pytest output
+  coverage: '/TOTAL.*\s+(\d+%)$/'
+  script:
+    - pytest --cov
+
+
+# Publish the python package to the local Gitlab registry
+deploy-local:
+  stage: deploy
+  # Credentials for local repository
+  variables:
+    PASSWORD: '${CI_JOB_TOKEN}'
+    USERNAME: 'gitlab-ci-token'
+  script:
+    - rm -rf dist build
+    - poetry config repositories.ptw-gitlab $CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/pypi
+    - poetry publish --build --username $USERNAME --password $PASSWORD --repository ptw-gitlab
+  rules:
+    - !reference [.on_version_tag_rule, rules]

@@ -1,0 +1,32 @@
+[[observations]]
+name = "machine_heating_consumption"
+ext_id = "glt_hnht_only.HNHT.CentralMachineHeatingSystem.WMZ300.sensorState.fHeatFlowRate"
+is_ext_output = true
+low_value=-10
+high_value=200
+
+[[observations]]
+name = "pwt_system_state"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.systemState.nOperatingState"
+is_ext_output = true
+low_value=0
+high_value=4
+
+[[observations]]
+name = "machine_heating_consumption_target"
+scenario_id = "WT_WW-P-50.215.ThHy_P.WMZ215"
+from_scenario = true
+
+[[observations]]
+name = "pwt_get_setpoint"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setPointState.fSetPoint"
+is_ext_output = true
+low_value=0
+high_value=1
+
+[[actions]]
+name = "pwt_set_setpoint"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
+is_ext_input = true
+low_value=0
+high_value=100

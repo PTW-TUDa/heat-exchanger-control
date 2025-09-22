@@ -1,0 +1,67 @@
+[project]
+name = "pwt-control"
+version = "1.0.1"
+description = "A template for Python projects using Poetry and GitLab CI/CD"
+license = "BSD-2-Clause"
+readme = "README.rst"
+requires-python = ">=3.11.0, <3.13.0"
+authors = [
+    {name = "Technical University of Darmstadt, Institute for Production Management, Technology and Machine Tools (PTW)", email="info@ptw.tu-darmstadt.de"}
+]
+dynamic = ["classifiers", "dependencies"]
+keywords = ["template", "<keyword2>", "<keyword3>"]
+
+
+[tool.poetry]
+requires-poetry = ">=2.0"
+
+#  '^' limits to the next major version, '~' limits to the next minor version
+# e.g. ^3.9.0: 3.9.0 <= x < 4.0.0 and ~3.9.0: 3.9.0 <= x < 3.10.0
+[tool.poetry.dependencies]
+# Additional dependencies for development
+eta-ctrl = {git = "https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/eta-ctrl.git"}
+fmpy = {version = "<0.3.26"}
+numpy = "^2.3.3"
+pywin32 = "^311"
+
+[tool.poetry.group.dev.dependencies]
+# Linting and formatting
+ruff = "^0.11.9"
+# English spell checking
+codespell = "^2.4.1"
+# Testing
+pytest = "^8.3.5"
+# Type checking
+mypy = "^1.16.0"
+pytest-cov = "^6.1.1"
+pre-commit = "^4.2.0"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = 20
+log_cli_format = "[%(levelname)s: %(name)s] %(message)s"
+testpaths = [
+    "test",
+]
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+required-version = ">=0.11.2"
+target-version= "py310"
+output-format = "concise"
+
+[tool.ruff.lint.extend-per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+
+[tool.codespell]
+skip = "*.lock, ./docs/_build"
+quiet-level = 3
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
