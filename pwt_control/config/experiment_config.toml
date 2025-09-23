@@ -21,6 +21,6 @@ scenario_time_end = "2025-06-03 18:00"
 sim_steps_per_sample = 1
 
 [[environment_specific.scenario_files]]  # accessible via the scenario_files parameter
-path = "20250603_produktion.csv"
+path = "20250603_produktion_Test.csv"
 interpolation_method = "interpolate"
 time_conversion_str = "%d.%m.%Y %H:%M"
