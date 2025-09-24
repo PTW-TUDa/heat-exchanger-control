@@ -12,10 +12,12 @@ is_ext_output = true
 low_value=0
 high_value=4
 
-[[observations]]
+[[state_params]]
 name = "HKK_HWV.300.ThHy_P.WMZ300"
 scenario_id = "HKK_HWV.300.ThHy_P.WMZ300"
 from_scenario = true
+low_value = -200
+high_value = 200
 
 [[observations]]
 name = "pwt_get_setpoint"
@@ -53,7 +55,7 @@ low_value=0
 high_value=1
 
 [[actions]]
-name = "pwt_system_on"
+name = "pwt_control_mode"
 ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm"
 is_ext_input = true
 low_value=0
