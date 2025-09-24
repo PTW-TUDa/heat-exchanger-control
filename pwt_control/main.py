@@ -10,6 +10,6 @@ def experiment() -> None:
     root_path = pathlib.Path(__file__).parent
     experiment = EtaCtrl(root_path=root_path, config_name="experiment_config")
     experiment.play(series_name="pwt_control", run_name="alpha_run")
-
+    
 if __name__ == "__main__":
     experiment()

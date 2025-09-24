@@ -8,16 +8,16 @@ relpath_scenarios = "scenarios"
 relpath_state = "config/pwt_state_config"
 
 [settings]
-sampling_time = 5  # time in seconds
-episode_duration = 60  # time in seconds
+sampling_time = 60  # time in seconds
+episode_duration = 600  # time in seconds
 n_episodes_play = 1
 verbose = 4
 seed = 123
 interact_with_env = false
 
 [environment_specific]
-scenario_time_begin = "2025-09-24 10:00"
-scenario_time_end = "2025-09-24 10:59"
+scenario_time_begin = "2025-09-24 12:45"
+scenario_time_end = "2025-09-24 14:59"
 sim_steps_per_sample = 1
 
 [[environment_specific.scenario_files]]  # accessible via the scenario_files parameter
