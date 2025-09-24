@@ -376,6 +376,12 @@
             "server": "glt"
         },
         {
+            "name": "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm",
+            "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm",
+            "dtype": "int",
+            "server": "glt"
+        },
+        {
             "name": "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm",
             "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm",
             "dtype": "float",
@@ -472,6 +478,7 @@
           "HNHT_HNLT.HeatExchanger1System.control.bAlgorithmModeActivated": true,
           "HNHT_HNLT.HeatExchanger1System.RV315.control.bAlgorithmModeActivated": true,
           "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnAlgorithm": true,
+          "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm": 3,
           "HNHT_HNLT.HeatExchanger1System.setSetPoint.fSetPointAlgorithm": 0,
           "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnAlgorithm": true,
           "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm": 0
@@ -480,6 +487,7 @@
           "HNHT_HNLT.HeatExchanger1System.control.bAlgorithmModeActivated": false,
           "HNHT_HNLT.HeatExchanger1System.RV315.control.bAlgorithmModeActivated": false,
           "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnAlgorithm": false,
+          "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm": 0,
           "HNHT_HNLT.HeatExchanger1System.setSetPoint.fSetPointAlgorithm": 0,
           "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnAlgorithm": false,
           "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm": 0

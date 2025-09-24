@@ -12,12 +12,10 @@ is_ext_output = true
 low_value=0
 high_value=4
 
-[[state_params]]
+[[observations]]
 name = "HKK_HWV.300.ThHy_P.WMZ300"
 scenario_id = "HKK_HWV.300.ThHy_P.WMZ300"
 from_scenario = true
-low_value = -200
-high_value = 200
 
 [[observations]]
 name = "pwt_get_setpoint"

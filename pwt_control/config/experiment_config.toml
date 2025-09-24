@@ -16,8 +16,8 @@ seed = 123
 interact_with_env = false
 
 [environment_specific]
-scenario_time_begin = "2025-06-03 11:00"
-scenario_time_end = "2025-06-03 18:00"
+scenario_time_begin = "2025-09-24 10:00"
+scenario_time_end = "2025-09-24 10:59"
 sim_steps_per_sample = 1
 
 [[environment_specific.scenario_files]]  # accessible via the scenario_files parameter
