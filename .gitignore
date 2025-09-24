@@ -2,7 +2,6 @@
 
 *.xls
 *.xlsx
-*.csv
 *.json
 !*/resources/**/*.json
 !*/resources/**/*.csv

@@ -12,10 +12,12 @@ is_ext_output = true
 low_value=0
 high_value=4
 
-[[observations]]
-name = "machine_heating_consumption_target"
-scenario_id = "WT_WW-P-50.215.ThHy_P.WMZ215"
+[[state_params]]
+name = "HKK_HWV.300.ThHy_P.WMZ300"
+scenario_id = "HKK_HWV.300.ThHy_P.WMZ300"
 from_scenario = true
+low_value = -200
+high_value = 200
 
 [[observations]]
 name = "pwt_get_setpoint"
@@ -25,8 +27,43 @@ low_value=0
 high_value=1
 
 [[actions]]
+name = "pwt_system_algorithm"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.control.bAlgorithmModeActivated"
+is_ext_input = true
+low_value=0
+high_value=1
+
+[[actions]]
+name = "pwt_rv_algorithm"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.control.bAlgorithmModeActivated"
+is_ext_input = true
+low_value=0
+high_value=1
+
+[[actions]]
+name = "pwt_system_on"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnAlgorithm"
+is_ext_input = true
+low_value=0
+high_value=1
+
+[[actions]]
+name = "pwt_rv_on"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnAlgorithm"
+is_ext_input = true
+low_value=0
+high_value=1
+
+[[actions]]
+name = "pwt_control_mode"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm"
+is_ext_input = true
+low_value=0
+high_value=3
+
+[[actions]]
 name = "pwt_set_setpoint"
 ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
 is_ext_input = true
-low_value=0
-high_value=100
+low_value=-10
+high_value=200
