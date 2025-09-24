@@ -13,7 +13,7 @@ low_value=0
 high_value=4
 
 [[observations]]
-name = "machine_heating_consumption_target"
+name = "HKK_HWV.300.ThHy_P.WMZ300"
 scenario_id = "HKK_HWV.300.ThHy_P.WMZ300"
 from_scenario = true
 
