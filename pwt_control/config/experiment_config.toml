@@ -9,18 +9,18 @@ relpath_state = "config/pwt_state_config"
 
 [settings]
 sampling_time = 60  # time in seconds
-episode_duration = 600  # time in seconds
+episode_duration = 17940  # time in seconds
 n_episodes_play = 1
 verbose = 4
 seed = 123
 interact_with_env = false
 
 [environment_specific]
-scenario_time_begin = "2025-09-24 12:45"
-scenario_time_end = "2025-09-24 12:55"
+scenario_time_begin = "2025-09-26 11:30"
+scenario_time_end = "2025-09-26 16:29"
 sim_steps_per_sample = 1
 
 [[environment_specific.scenario_files]]  # accessible via the scenario_files parameter
-path = "20250603_produktion_Test.csv"
+path = "20250603_produktion_10min.csv"
 interpolation_method = "interpolate"
 time_conversion_str = "%d.%m.%Y %H:%M"
