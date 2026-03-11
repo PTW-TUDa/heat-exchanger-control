@@ -1,0 +1,14 @@
+[setup]
+environment_import = "environments.pwt.Pwt"
+agent_import = "pwt_controller.PwtController"
+
+[settings]
+scenario_time_begin = "2025-01-01 00:16"
+scenario_time_end = "2025-01-01 00:46"
+sampling_time = 10  # time in seconds
+episode_duration = 10  # time in seconds
+n_episodes_play = 1
+
+[[environment_specific.scenario_files]]
+path = "beispielverlauf.csv"
+interpolation_method = "ffill"

@@ -17,13 +17,6 @@ name = "lastverlauf"
 scenario_id = "lastverlauf"
 from_scenario = true
 
-[[observations]]
-name = "pwt_get_setpoint"
-ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setPointState.fSetPoint"
-is_ext_output = true
-low_value=0
-high_value=1
-
 [[actions]]
 name = "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
 ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"

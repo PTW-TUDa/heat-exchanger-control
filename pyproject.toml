@@ -1,10 +1,10 @@
 [project]
 name = "pwt-control"
 version = "1.0.1"
-description = "A template for Python projects using Poetry and GitLab CI/CD"
+description = "A simple rule based control system for the HNHT->HNLT heat exchanger at ETA"
 license = "BSD-2-Clause"
 readme = "README.rst"
-requires-python = ">=3.11.0, <3.13.0"
+requires-python = ">=3.11.15, <3.13.0"
 authors = [
     {name = "Technical University of Darmstadt, Institute for Production Management, Technology and Machine Tools (PTW)", email="info@ptw.tu-darmstadt.de"}
 ]
@@ -19,8 +19,7 @@ requires-poetry = ">=2.0"
 # e.g. ^3.9.0: 3.9.0 <= x < 4.0.0 and ~3.9.0: 3.9.0 <= x < 3.10.0
 [tool.poetry.dependencies]
 # Additional dependencies for development
-eta-ctrl = {git = "https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/eta-ctrl.git"}
-fmpy = {version = "<0.3.26"}
+eta-ctrl = {git = "https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/eta-ctrl.git", rev = "e6db69b2c3e417f1fb8fa042482c5c615d7c8011"}
 numpy = "^2.3.3"
 pywin32 = "^311"
 
@@ -29,20 +28,9 @@ pywin32 = "^311"
 ruff = "^0.11.9"
 # English spell checking
 codespell = "^2.4.1"
-# Testing
-pytest = "^8.3.5"
 # Type checking
 mypy = "^1.16.0"
-pytest-cov = "^6.1.1"
 pre-commit = "^4.2.0"
-
-[tool.pytest.ini_options]
-log_cli = true
-log_cli_level = 20
-log_cli_format = "[%(levelname)s: %(name)s] %(message)s"
-testpaths = [
-    "test",
-]
 
 [tool.ruff]
 line-length = 120
