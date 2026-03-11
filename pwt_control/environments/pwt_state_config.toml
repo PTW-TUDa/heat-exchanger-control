@@ -13,8 +13,22 @@ low_value=0
 high_value=4
 
 [[observations]]
-name = "lastverlauf"
-scenario_id = "lastverlauf"
+name = "hnht_algorithm_permission"
+ext_id = "glt_hnht_only.Strategy.localState.bAlgorithmPermission_HNHT"
+is_ext_output = true
+low_value=0
+high_value=1
+
+[[observations]]
+name = "central_machine_heating_thermal_load"
+from_scenario = true
+
+[[observations]]
+name = "static_heating_thermal_load"
+from_scenario = true
+
+[[observations]]
+name = "hex1_thermal_load"
 from_scenario = true
 
 [[actions]]

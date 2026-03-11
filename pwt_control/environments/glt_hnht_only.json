@@ -16,6 +16,12 @@
           "dtype": "bool"
         },
         {
+          "name": "Strategy.localState.bAlgorithmPermission_HNHT",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.Strategy.localState.bAlgorithmPermission_HNHT",
+          "dtype": "bool"
+        },
+        {
           "name": "Ambient.localState.fOutsideTemperature",
           "server": "glt",
           "opc_id": "ns=4;s=MAIN.Ambient.localState.fOutsideTemperature",
@@ -463,6 +469,7 @@
       ],
       "observe": [
         "Strategy.localSetParameters.bProductionModeActivated",
+        "Strategy.localState.bAlgorithmPermission_HNHT",
         "Ambient.localState.fOutsideTemperature",
         "HNHT.localState.fUpperTemperature",
         "HNHT.localState.fMidTemperature",
