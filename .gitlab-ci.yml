@@ -27,7 +27,7 @@ workflow:
 # Additional environment variables
 variables:
   # Poetry settings
-  POETRY_VERSION: 2.1.1
+  POETRY_VERSION: 2.3.2
   POETRY_HOME: /usr/local
   POETRY_NO_INTERACTION: 1
   POETRY_VIRTUALENVS_IN_PROJECT: true
