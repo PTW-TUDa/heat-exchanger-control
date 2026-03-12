@@ -7,7 +7,7 @@ class PwtController(RuleBased):
         if observation["pwt_system_state"] != 4 or observation["hnht_algorithm_permission"] == 0:
             action = [-1.0]
         else:
-            action = (
+            action = -(
                 observation["hex1_thermal_load"]
                 + observation["static_heating_thermal_load"]
                 + observation["central_machine_heating_thermal_load"]
