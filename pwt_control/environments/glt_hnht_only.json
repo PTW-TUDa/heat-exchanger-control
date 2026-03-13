@@ -464,8 +464,19 @@
             "opc_id": "ns=4;s=MAIN.HNLT.HVFASystem.control.bSetStatusOnAlgorithm",
             "dtype": "bool",
             "server": "glt"
+        },
+        {
+          "name": "HNLT.OuterCapillaryTubeMats.setSetPoint.fSetPointAlgorithm",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNLT.OuterCapillaryTubeMats.setSetPoint.fSetPointAlgorithm",
+          "dtype": "float"
+        },
+        {
+          "name": "HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate",
+          "dtype": "float"
         }
-
       ],
       "observe": [
         "Strategy.localSetParameters.bProductionModeActivated",
@@ -534,6 +545,7 @@
         "HNLT.OuterCapillaryTubeMats.control.bAlgorithmModeActivated",
         "HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm",
         "HNLT.OuterCapillaryTubeMats.setSetPoint.fSetPointAlgorithm",
+        "HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate",
         "HNHT_HNLT.HeatPumpSystem.control.bAlgorithmModeActivated",
         "HNHT_HNLT.HeatPumpSystem.control.bSetStatusOnAlgorithm",
         "HNLT_CN.HeatPumpSystem.control.bAlgorithmModeActivated",
