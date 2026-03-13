@@ -16,21 +16,21 @@ class PwtController(RuleBased):
 
 
 PREHEATING_ACTION_VALUES = {
-    "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnManual": True,
-    "HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnManual": False,
-    "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnManual": True,
-    "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeManual": 0,
-    "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointManual": 100.0,
-    "HNHT.CHP2System.control.bSetStatusOnManual": False,
-    "HNHT.CHP2System.PU32x.control.bSetStatusOnManual": True,
-    "HNHT.CHP2System.PU32x.setSetPoint.fSetPointManual": 100.0,
-    "HNHT.CHP2System.RV32x.control.bSetStatusOnManual": True,
-    "HNHT.CHP2System.RV32x.localSetParameters.nControlModeManual": 0,
-    "HNHT.CHP2System.RV32x.setSetPoint.fSetPointManual": 100.0,
-    "HNHT.VSIStorageSystem.control.bSetStatusOnManual": True,
-    "HNHT.VSIStorageSystem.localSetParameters.bLoadingManual": True,
-    "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnManual": True,
-    "HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointManual": 100.0,
+    "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnAlgorithm": True,
+    "HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnAlgorithm": False,
+    "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnAlgorithm": True,
+    "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm": 0,
+    "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm": 100.0,
+    "HNHT.CHP2System.control.bSetStatusOnAlgorithm": False,
+    "HNHT.CHP2System.PU32x.control.bSetStatusOnAlgorithm": True,
+    "HNHT.CHP2System.PU32x.setSetPoint.fSetPointAlgorithm": 100.0,
+    "HNHT.CHP2System.RV32x.control.bSetStatusOnAlgorithm": True,
+    "HNHT.CHP2System.RV32x.localSetParameters.nControlModeAlgorithm": 0,
+    "HNHT.CHP2System.RV32x.setSetPoint.fSetPointAlgorithm": 100.0,
+    "HNHT.VSIStorageSystem.control.bSetStatusOnAlgorithm": True,
+    "HNHT.VSIStorageSystem.localSetParameters.bLoadingAlgorithm": True,
+    "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnAlgorithm": True,
+    "HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointAlgorithm": 100.0,
 }
 
 

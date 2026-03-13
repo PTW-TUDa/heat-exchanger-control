@@ -1,104 +1,104 @@
 [[actions]]
-name = "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnManual"
-ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnManual"
+name = "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnManual"
-ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnManual"
+name = "HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnManual"
-ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnManual"
+name = "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeManual"
-ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeManual"
+name = "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 10
 
 [[actions]]
-name = "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointManual"
-ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointManual"
+name = "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 100
 
 [[actions]]
-name = "HNHT.CHP2System.control.bSetStatusOnManual"
-ext_id = "glt_hnht_only.HNHT.CHP2System.control.bSetStatusOnManual"
+name = "HNHT.CHP2System.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT.CHP2System.control.bSetStatusOnAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT.CHP2System.PU32x.control.bSetStatusOnManual"
-ext_id = "glt_hnht_only.HNHT.CHP2System.PU32x.control.bSetStatusOnManual"
+name = "HNHT.CHP2System.PU32x.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT.CHP2System.PU32x.control.bSetStatusOnAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT.CHP2System.PU32x.setSetPoint.fSetPointManual"
-ext_id = "glt_hnht_only.HNHT.CHP2System.PU32x.setSetPoint.fSetPointManual"
+name = "HNHT.CHP2System.PU32x.setSetPoint.fSetPointAlgorithm"
+ext_id = "glt_hnht_only.HNHT.CHP2System.PU32x.setSetPoint.fSetPointAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 100
 
 [[actions]]
-name = "HNHT.CHP2System.RV32x.control.bSetStatusOnManual"
-ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.control.bSetStatusOnManual"
+name = "HNHT.CHP2System.RV32x.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.control.bSetStatusOnAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT.CHP2System.RV32x.localSetParameters.nControlModeManual"
-ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.localSetParameters.nControlModeManual"
+name = "HNHT.CHP2System.RV32x.localSetParameters.nControlModeAlgorithm"
+ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.localSetParameters.nControlModeAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 10
 
 [[actions]]
-name = "HNHT.CHP2System.RV32x.setSetPoint.fSetPointManual"
-ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.setSetPoint.fSetPointManual"
+name = "HNHT.CHP2System.RV32x.setSetPoint.fSetPointAlgorithm"
+ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.setSetPoint.fSetPointAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 100
 
 [[actions]]
-name = "HNHT.VSIStorageSystem.control.bSetStatusOnManual"
-ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.control.bSetStatusOnManual"
+name = "HNHT.VSIStorageSystem.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.control.bSetStatusOnAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT.VSIStorageSystem.localSetParameters.bLoadingManual"
-ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.localSetParameters.bLoadingManual"
+name = "HNHT.VSIStorageSystem.localSetParameters.bLoadingAlgorithm"
+ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.localSetParameters.bLoadingAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnManual"
-ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.SV307.control.bSetStatusOnManual"
+name = "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.SV307.control.bSetStatusOnAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 1
 
 [[actions]]
-name = "HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointManual"
-ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointManual"
+name = "HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointAlgorithm"
+ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointAlgorithm"
 is_ext_input = true
 low_value = 0
 high_value = 100
