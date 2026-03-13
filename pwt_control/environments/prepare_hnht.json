@@ -112,6 +112,18 @@
           "dtype": "float"
         },
         {
+          "name": "HNHT.CHP2System.SV32x.control.bAlgorithmModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.SV32x.control.bAlgorithmModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.CHP2System.SV32x.control.bSetStatusOnAlgorithm",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.SV32x.control.bSetStatusOnAlgorithm",
+          "dtype": "bool"
+        },
+        {
           "name": "HNHT.VSIStorageSystem.control.bAlgorithmModeActivated",
           "server": "glt",
           "opc_id": "ns=4;s=MAIN.HNHT.VSIStorageSystem.control.bAlgorithmModeActivated",
@@ -157,6 +169,7 @@
           "HNHT.CHP2System.control.bAlgorithmModeActivated": true,
           "HNHT.CHP2System.PU32x.control.bAlgorithmModeActivated": true,
           "HNHT.CHP2System.RV32x.control.bAlgorithmModeActivated": true,
+          "HNHT.CHP2System.SV32x.control.bAlgorithmModeActivated": true,
           "HNHT.VSIStorageSystem.control.bAlgorithmModeActivated": true,
           "HNHT.VSIStorageSystem.SV307.control.bAlgorithmModeActivated": true
         },
@@ -178,6 +191,8 @@
           "HNHT.CHP2System.RV32x.control.bSetStatusOnAlgorithm": false,
           "HNHT.CHP2System.RV32x.localSetParameters.nControlModeAlgorithm": 0,
           "HNHT.CHP2System.RV32x.setSetPoint.fSetPointAlgorithm": 0,
+          "HNHT.CHP2System.SV32x.control.bAlgorithmModeActivated": false,
+          "HNHT.CHP2System.SV32x.control.bSetStatusOnAlgorithm": false,
           "HNHT.VSIStorageSystem.control.bAlgorithmModeActivated": false,
           "HNHT.VSIStorageSystem.control.bSetStatusOnAlgorithm": false,
           "HNHT.VSIStorageSystem.localSetParameters.bLoadingAlgorithm": false,

@@ -27,6 +27,7 @@ PREHEATING_ACTION_VALUES = {
     "HNHT.CHP2System.RV32x.control.bSetStatusOnAlgorithm": True,
     "HNHT.CHP2System.RV32x.localSetParameters.nControlModeAlgorithm": 0,
     "HNHT.CHP2System.RV32x.setSetPoint.fSetPointAlgorithm": 100.0,
+    "HNHT.CHP2System.SV32x.control.bSetStatusOnAlgorithm": True,
     "HNHT.VSIStorageSystem.control.bSetStatusOnAlgorithm": True,
     "HNHT.VSIStorageSystem.localSetParameters.bLoadingAlgorithm": True,
     "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnAlgorithm": True,

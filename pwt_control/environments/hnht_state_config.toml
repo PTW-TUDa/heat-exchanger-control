@@ -76,6 +76,13 @@ low_value = 0
 high_value = 100
 
 [[actions]]
+name = "HNHT.CHP2System.SV32x.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNHT.CHP2System.SV32x.control.bSetStatusOnAlgorithm"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
 name = "HNHT.VSIStorageSystem.control.bSetStatusOnAlgorithm"
 ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.control.bSetStatusOnAlgorithm"
 is_ext_input = true
