@@ -1,0 +1,104 @@
+[[actions]]
+name = "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnManual"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnManual"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnManual"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeManual"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeManual"
+is_ext_input = true
+low_value = 0
+high_value = 10
+
+[[actions]]
+name = "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointManual"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointManual"
+is_ext_input = true
+low_value = 0
+high_value = 100
+
+[[actions]]
+name = "HNHT.CHP2System.control.bSetStatusOnManual"
+ext_id = "glt_hnht_only.HNHT.CHP2System.control.bSetStatusOnManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT.CHP2System.PU32x.control.bSetStatusOnManual"
+ext_id = "glt_hnht_only.HNHT.CHP2System.PU32x.control.bSetStatusOnManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT.CHP2System.PU32x.setSetPoint.fSetPointManual"
+ext_id = "glt_hnht_only.HNHT.CHP2System.PU32x.setSetPoint.fSetPointManual"
+is_ext_input = true
+low_value = 0
+high_value = 100
+
+[[actions]]
+name = "HNHT.CHP2System.RV32x.control.bSetStatusOnManual"
+ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.control.bSetStatusOnManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT.CHP2System.RV32x.localSetParameters.nControlModeManual"
+ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.localSetParameters.nControlModeManual"
+is_ext_input = true
+low_value = 0
+high_value = 10
+
+[[actions]]
+name = "HNHT.CHP2System.RV32x.setSetPoint.fSetPointManual"
+ext_id = "glt_hnht_only.HNHT.CHP2System.RV32x.setSetPoint.fSetPointManual"
+is_ext_input = true
+low_value = 0
+high_value = 100
+
+[[actions]]
+name = "HNHT.VSIStorageSystem.control.bSetStatusOnManual"
+ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.control.bSetStatusOnManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT.VSIStorageSystem.localSetParameters.bLoadingManual"
+ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.localSetParameters.bLoadingManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnManual"
+ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.SV307.control.bSetStatusOnManual"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointManual"
+ext_id = "glt_hnht_only.HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointManual"
+is_ext_input = true
+low_value = 0
+high_value = 100

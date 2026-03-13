@@ -1,0 +1,191 @@
+{
+  "system": [
+    {
+      "name": "glt_hnht_only",
+      "servers": {
+        "glt": {
+          "url": "opc.tcp://192.168.116.86:4840",
+          "protocol": "opcua"
+        }
+      },
+      "nodes": [
+        {
+          "name": "HNHT_HNLT.HeatExchanger1System.control.bManualModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.control.bManualModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT_HNLT.HeatExchanger1System.PU215.control.bManualModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.PU215.control.bManualModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT_HNLT.HeatExchanger1System.RV315.control.bManualModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.RV315.control.bManualModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeManual",
+          "dtype": "int"
+        },
+        {
+          "name": "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointManual",
+          "dtype": "float"
+        },
+        {
+          "name": "HNHT.CHP2System.control.bManualModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.control.bManualModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.CHP2System.control.bSetStatusOnManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.control.bSetStatusOnManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.CHP2System.PU32x.control.bManualModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.PU32x.control.bManualModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.CHP2System.PU32x.control.bSetStatusOnManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.PU32x.control.bSetStatusOnManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.CHP2System.PU32x.setSetPoint.fSetPointManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.PU32x.setSetPoint.fSetPointManual",
+          "dtype": "float"
+        },
+        {
+          "name": "HNHT.CHP2System.RV32x.control.bManualModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.RV32x.control.bManualModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.CHP2System.RV32x.control.bSetStatusOnManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.RV32x.control.bSetStatusOnManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.CHP2System.RV32x.localSetParameters.nControlModeManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.RV32x.localSetParameters.nControlModeManual",
+          "dtype": "int"
+        },
+        {
+          "name": "HNHT.CHP2System.RV32x.setSetPoint.fSetPointManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.CHP2System.RV32x.setSetPoint.fSetPointManual",
+          "dtype": "float"
+        },
+        {
+          "name": "HNHT.VSIStorageSystem.control.bManualModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.VSIStorageSystem.control.bManualModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.VSIStorageSystem.control.bSetStatusOnManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.VSIStorageSystem.control.bSetStatusOnManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.VSIStorageSystem.localSetParameters.bLoadingManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.VSIStorageSystem.localSetParameters.bLoadingManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.VSIStorageSystem.SV307.control.bManualModeActivated",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.VSIStorageSystem.SV307.control.bManualModeActivated",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.VSIStorageSystem.SV307.control.bSetStatusOnManual",
+          "dtype": "bool"
+        },
+        {
+          "name": "HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointManual",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointManual",
+          "dtype": "float"
+        }
+      ],
+      "observe": [],
+      "actions": {
+        "init": {
+          "HNHT_HNLT.HeatExchanger1System.control.bManualModeActivated": true,
+          "HNHT_HNLT.HeatExchanger1System.PU215.control.bManualModeActivated": true,
+          "HNHT_HNLT.HeatExchanger1System.RV315.control.bManualModeActivated": true,
+          "HNHT.CHP2System.control.bManualModeActivated": true,
+          "HNHT.CHP2System.PU32x.control.bManualModeActivated": true,
+          "HNHT.CHP2System.RV32x.control.bManualModeActivated": true,
+          "HNHT.VSIStorageSystem.control.bManualModeActivated": true,
+          "HNHT.VSIStorageSystem.SV307.control.bManualModeActivated": true
+        },
+        "close": {
+          "HNHT_HNLT.HeatExchanger1System.control.bManualModeActivated": false,
+          "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnManual": false,
+          "HNHT_HNLT.HeatExchanger1System.PU215.control.bManualModeActivated": false,
+          "HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnManual": false,
+          "HNHT_HNLT.HeatExchanger1System.RV315.control.bManualModeActivated": false,
+          "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnManual": false,
+          "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeManual": 0,
+          "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointManual": 0,
+          "HNHT.CHP2System.control.bManualModeActivated": false,
+          "HNHT.CHP2System.control.bSetStatusOnManual": false,
+          "HNHT.CHP2System.PU32x.control.bManualModeActivated": false,
+          "HNHT.CHP2System.PU32x.control.bSetStatusOnManual": false,
+          "HNHT.CHP2System.PU32x.setSetPoint.fSetPointManual": 0,
+          "HNHT.CHP2System.RV32x.control.bManualModeActivated": false,
+          "HNHT.CHP2System.RV32x.control.bSetStatusOnManual": false,
+          "HNHT.CHP2System.RV32x.localSetParameters.nControlModeManual": 0,
+          "HNHT.CHP2System.RV32x.setSetPoint.fSetPointManual": 0,
+          "HNHT.VSIStorageSystem.control.bManualModeActivated": false,
+          "HNHT.VSIStorageSystem.control.bSetStatusOnManual": false,
+          "HNHT.VSIStorageSystem.localSetParameters.bLoadingManual": false,
+          "HNHT.VSIStorageSystem.SV307.control.bManualModeActivated": false,
+          "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnManual": false,
+          "HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointManual": 0
+        }
+      }
+    }
+  ]
+}
