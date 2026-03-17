@@ -12,7 +12,11 @@ class PwtController(RuleBased):
                 + observation["static_heating_thermal_load"]
                 + observation["central_machine_heating_thermal_load"]
             )
-        return asarray(action)
+
+        # action productionmode
+        productionmode = observation["bproductionmodeactivated"]
+        print(asarray([asarray(action).item(), asarray(productionmode).item()], dtype=float))
+        return asarray([asarray(action).item(), asarray(productionmode).item()], dtype=float)
 
 
 PREHEATING_ACTION_VALUES = {

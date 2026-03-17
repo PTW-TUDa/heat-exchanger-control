@@ -31,9 +31,20 @@ from_scenario = true
 name = "hex1_thermal_load"
 from_scenario = true
 
+[[observations]]
+name = "bproductionmodeactivated"
+from_scenario = true
+
 [[actions]]
 name = "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
 ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
 is_ext_input = true
 low_value=-10
 high_value=200
+
+[[actions]]
+name = "Strategy.localSetParameters.bProductionModeActivated"
+ext_id = "glt_hnht_only.Strategy.localSetParameters.bProductionModeActivated"
+is_ext_input = true
+low_value = 0
+high_value = 1

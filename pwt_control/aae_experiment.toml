@@ -1,13 +1,14 @@
 [setup]
 environment_import = "environments.pwt.Pwt"
-agent_import = "pwt_controller.PwtController"
+agent_import = "controllers.PwtController"
 
 [settings]
 scenario_time_begin = "2026-01-01 00:00"
 scenario_time_end = "2026-01-04 23:59"
 sampling_time = 10  # time in seconds
-episode_duration = 120  # time in seconds
+episode_duration = 259200  # time in seconds
 n_episodes_play = 1
+use_random_time_slice = false
 
 [[environment_specific.scenario_files]]
 path = "ETAFactory_HNHT_ScenarioData_LiveScenario.csv"

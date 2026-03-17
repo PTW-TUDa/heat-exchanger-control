@@ -23,7 +23,7 @@ class Hnht(LiveEnv):
 
     @property
     def config_name(_):
-        return "prepare_hnht"
+        return "pwt_control/environments/prepare_hnht"
 
     def render(self) -> None:
         # create episode dataframe

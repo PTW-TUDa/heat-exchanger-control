@@ -23,7 +23,7 @@ class Pwt(LiveEnv):
 
     @property
     def config_name(_):
-        return "glt_hnht_only"
+        return "pwt_control/environments/glt_hnht_only"
 
     def render(self) -> None:
         # create episode dataframe
