@@ -20,6 +20,13 @@ low_value=0
 high_value=1
 
 [[observations]]
+name = "hnlt_algorithm_permission"
+ext_id = "glt_hnht_only.Strategy.localState.bAlgorithmPermission_HNLT"
+is_ext_output = true
+low_value=0
+high_value=1
+
+[[observations]]
 name = "central_machine_heating_thermal_load"
 from_scenario = true
 
@@ -34,6 +41,62 @@ from_scenario = true
 [[observations]]
 name = "bproductionmodeactivated"
 from_scenario = true
+
+[[observations]]
+name = "HNLT.OuterCapillaryTubeMats.setSetPoint.fSetPointAlgorithm"
+ext_id = "glt_hnht_only.HNLT.OuterCapillaryTubeMats.setSetPoint.fSetPointAlgorithm"
+is_ext_output = true
+low_value = -5
+high_value = 100
+
+[[observations]]
+name = "HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate"
+ext_id = "glt_hnht_only.HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate"
+is_ext_output = true
+low_value = -150
+high_value = 150
+
+[[observations]]
+name = "HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fVolumeFlowRate"
+ext_id = "glt_hnht_only.HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fVolumeFlowRate"
+is_ext_output = true
+low_value = -150
+high_value = 150
+
+[[observations]]
+name = "HNLT.OuterCapillaryTubeMats.RV600.setPointState.fSetPoint"
+ext_id = "glt_hnht_only.HNLT.OuterCapillaryTubeMats.RV600.setPointState.fSetPoint"
+is_ext_output = true
+low_value = -150
+high_value = 150
+
+[[observations]]
+name = "HNLT.OuterCapillaryTubeMats.RV600.setPointState.fOperatingPoint"
+ext_id = "glt_hnht_only.HNLT.OuterCapillaryTubeMats.RV600.setPointState.fOperatingPoint"
+is_ext_output = true
+low_value = -150
+high_value = 150
+
+[[observations]]
+name = "HNLT.localState.fLowerTemperature"
+ext_id = "glt_hnht_only.HNLT.localState.fLowerTemperature"
+is_ext_output = true
+low_value = 0
+high_value = 100
+
+[[observations]]
+name = "HNLT.localState.fMidTemperature"
+ext_id = "glt_hnht_only.HNLT.localState.fMidTemperature"
+is_ext_output = true
+low_value = 0
+high_value = 100
+
+[[observations]]
+name = "HNLT.localState.fUpperTemperature"
+ext_id = "glt_hnht_only.HNLT.localState.fUpperTemperature"
+is_ext_output = true
+low_value = 0
+high_value = 100
 
 [[actions]]
 name = "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"

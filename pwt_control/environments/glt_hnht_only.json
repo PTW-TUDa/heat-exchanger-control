@@ -22,6 +22,12 @@
           "dtype": "bool"
         },
         {
+          "name": "Strategy.localState.bAlgorithmPermission_HNLT",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.Strategy.localState.bAlgorithmPermission_HNLT",
+          "dtype": "bool"
+        },
+        {
           "name": "Ambient.localState.fOutsideTemperature",
           "server": "glt",
           "opc_id": "ns=4;s=MAIN.Ambient.localState.fOutsideTemperature",
@@ -470,11 +476,48 @@
           "server": "glt",
           "opc_id": "ns=4;s=MAIN.HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate",
           "dtype": "float"
+        },
+        {
+          "name": "HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fVolumeFlowRate",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fVolumeFlowRate",
+          "dtype": "float"
+        },
+        {
+          "name": "HNLT.OuterCapillaryTubeMats.RV600.setPointState.fSetPoint",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNLT.OuterCapillaryTubeMats.RV600.setPointState.fSetPoint",
+          "dtype": "float"
+        },
+        {
+          "name": "HNLT.OuterCapillaryTubeMats.RV600.setPointState.fOperatingPoint",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNLT.OuterCapillaryTubeMats.RV600.setPointState.fOperatingPoint",
+          "dtype": "float"
+        },
+        {
+          "name": "HNLT.localState.fLowerTemperature",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNLT.localState.fLowerTemperature",
+          "dtype": "float"
+        },
+        {
+          "name": "HNLT.localState.fMidTemperature",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNLT.localState.fMidTemperature",
+          "dtype": "float"
+        },
+        {
+          "name": "HNLT.localState.fUpperTemperature",
+          "server": "glt",
+          "opc_id": "ns=4;s=MAIN.HNLT.localState.fUpperTemperature",
+          "dtype": "float"
         }
       ],
       "observe": [
         "Strategy.localSetParameters.bProductionModeActivated",
         "Strategy.localState.bAlgorithmPermission_HNHT",
+        "Strategy.localState.bAlgorithmPermission_HNLT",
         "Ambient.localState.fOutsideTemperature",
         "HNHT.localState.fUpperTemperature",
         "HNHT.localState.fMidTemperature",
@@ -540,6 +583,12 @@
         "HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm",
         "HNLT.OuterCapillaryTubeMats.setSetPoint.fSetPointAlgorithm",
         "HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate",
+        "HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fVolumeFlowRate",
+        "HNLT.OuterCapillaryTubeMats.RV600.setPointState.fSetPoint",
+        "HNLT.OuterCapillaryTubeMats.RV600.setPointState.fOperatingPoint",
+        "HNLT.localState.fLowerTemperature",
+        "HNLT.localState.fMidTemperature",
+        "HNLT.localState.fUpperTemperature",
         "HNHT_HNLT.HeatPumpSystem.control.bAlgorithmModeActivated",
         "HNHT_HNLT.HeatPumpSystem.control.bSetStatusOnAlgorithm",
         "HNLT_CN.HeatPumpSystem.control.bAlgorithmModeActivated",
