@@ -50,6 +50,8 @@ class HysteresisController:
         self.output = bool(init_value)
 
     def get_action(self, actual_value):
+        actual_value = np.asarray(actual_value).item()  # force scalar
+
         if not self.output:
             if self.inverted:
                 self.output = actual_value >= self.upper_threshold
@@ -61,7 +63,7 @@ class HysteresisController:
             else:
                 self.output = actual_value < self.upper_threshold
 
-        return self.output
+        return bool(self.output)
 
 class PwtController(RuleBased):
     """
@@ -95,13 +97,14 @@ class PwtController(RuleBased):
         if observation["pwt_system_state"] != 4 or observation["hnht_algorithm_permission"] == 0:
             action["HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"] = 0
         else:
-            action["HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"] = -(
+            action["HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"] = float(-(
                 observation["hex1_thermal_load"]
                 + observation["static_heating_thermal_load"]
                 + observation["central_machine_heating_thermal_load"]
-            )
+            ))
         # action productionmode
-        action["Strategy.localSetParameters.bProductionModeActivated"] = observation["bproductionmodeactivated"]
+        # action["Strategy.localSetParameters.bProductionModeActivated"] = observation["bproductionmodeactivated"]
+        action["Strategy.localSetParameters.bProductionModeActivated"] = bool(np.asarray(observation["bproductionmodeactivated"]).item())
 
         #control recooling
         mid_buffer_temp = observation["HNLT.localState.fMidTemperature"]
@@ -128,9 +131,7 @@ class PwtController(RuleBased):
         for key, value in action.items():
             if value is None:
                 raise ValueError(f"Action '{key}' has not been set in the control_rules function.")
-        actions = []
-        actions.append(list(action.values()))
-        actions = actions[0]
+        actions = list(action.values())
 
         return np.array(actions)
 
