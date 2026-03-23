@@ -98,6 +98,21 @@ is_ext_output = true
 low_value = 0
 high_value = 100
 
+[[observations]]
+name = "HNHT_HNLT.HeatExchanger1System.WMZ215.sensorState.fHeatFlowRate"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.WMZ215.sensorState.fHeatFlowRate"
+is_ext_output = true
+
+[[observations]]
+name = "HNHT_HNLT.HeatExchanger1System.PU315.localState.fVolumeFlowRate"
+ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.PU315.localState.fVolumeFlowRate"
+is_ext_output = true
+
+[[observations]]
+name = "Strategy.localState.bAlgorithmPermission_HNLT"
+ext_id = "glt_hnht_only.Strategy.localState.bAlgorithmPermission_HNLT"
+is_ext_output = true
+
 [[actions]]
 name = "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
 ext_id = "glt_hnht_only.HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"
@@ -108,6 +123,34 @@ high_value=200
 [[actions]]
 name = "Strategy.localSetParameters.bProductionModeActivated"
 ext_id = "glt_hnht_only.Strategy.localSetParameters.bProductionModeActivated"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNLT.HVFASystem.control.bSetStatusOnAlgorithm"
+ext_id = "glt_hnht_only.HNLT.HVFASystem.control.bSetStatusOnAlgorithm"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated"
+ext_id = "glt_hnht_only.HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated"
+is_ext_input = true
+low_value = 0
+high_value = 1
+
+[[actions]]
+name = "HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated"
+ext_id = "glt_hnht_only.HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated"
 is_ext_input = true
 low_value = 0
 high_value = 1

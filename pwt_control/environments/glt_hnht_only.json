@@ -472,6 +472,42 @@
             "server": "glt"
         },
         {
+            "name": "HNLT.HVFASystem.localSetParameters.bLoadingAlgorithm",
+            "opc_id": "ns=4;s=MAIN.HNLT.HVFASystem.localSetParameters.bLoadingAlgorithm",
+            "dtype": "bool",
+            "server": "glt"
+        },
+        {
+            "name": "HNLT.HVFASystem.setSetPoint.fSetPointAlgorithm",
+            "opc_id": "ns=4;s=MAIN.HNLT.HVFASystem.setSetPoint.fSetPointAlgorithm",
+            "dtype": "bool",
+            "server": "glt"
+        },
+        {
+            "name": "HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated",
+            "opc_id": "ns=4;s=MAIN.HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated",
+            "dtype": "bool",
+            "server": "glt"
+        },
+        {
+            "name": "HNLT_CN.InnerCapillaryTubeMats.control.bSetStatusOnAlgorithm",
+            "opc_id": "ns=4;s=MAIN.HNLT_CN.InnerCapillaryTubeMats.control.bSetStatusOnAlgorithm",
+            "dtype": "bool",
+            "server": "glt"
+        },
+        {
+            "name": "HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated",
+            "opc_id": "ns=4;s=MAIN.HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated",
+            "dtype": "bool",
+            "server": "glt"
+        },
+        {
+            "name": "HNLT_CN.UnderfloorHeatingSystem.control.bSetStatusOnAlgorithm",
+            "opc_id": "ns=4;s=MAIN.HNLT_CN.UnderfloorHeatingSystem.control.bSetStatusOnAlgorithm",
+            "dtype": "bool",
+            "server": "glt"
+        },
+        {
           "name": "HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate",
           "server": "glt",
           "opc_id": "ns=4;s=MAIN.HNLT.OuterCapillaryTubeMats.WMZ235.sensorState.fHeatFlowRate",
@@ -595,6 +631,12 @@
         "HNLT_CN.HeatPumpSystem.control.bSetStatusOnAlgorithm",
         "HNLT.HVFASystem.control.bAlgorithmModeActivated",
         "HNLT.HVFASystem.control.bSetStatusOnAlgorithm",
+        "HNLT.HVFASystem.localSetParameters.bLoadingAlgorithm",
+        "HNLT.HVFASystem.setSetPoint.fSetPointAlgorithm",
+        "HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated",
+        "HNLT_CN.InnerCapillaryTubeMats.control.bSetStatusOnAlgorithm",
+        "HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated",
+        "HNLT_CN.UnderfloorHeatingSystem.control.bSetStatusOnAlgorithm",
         "LowVoltageMainDistribution.EM_TotalBuilding.sensorState.fPower",
         "Strategy.localState.aTemperatureLimits_HNHT"
       ],
@@ -608,14 +650,20 @@
           "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnAlgorithm": true,
           "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm": 0,
           "HNLT.OuterCapillaryTubeMats.control.bAlgorithmModeActivated": true,
-          "HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm": true,
-          "HNLT.OuterCapillaryTubeMats.setSetPoint.fSetPointAlgorithm": 35,
+          "HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm": false,
+          "HNLT.OuterCapillaryTubeMats.setSetPoint.fSetPointAlgorithm": 32,
           "HNHT_HNLT.HeatPumpSystem.control.bAlgorithmModeActivated": true,
           "HNHT_HNLT.HeatPumpSystem.control.bSetStatusOnAlgorithm": false,
           "HNLT_CN.HeatPumpSystem.control.bAlgorithmModeActivated": true,
           "HNLT_CN.HeatPumpSystem.control.bSetStatusOnAlgorithm": false,
           "HNLT.HVFASystem.control.bAlgorithmModeActivated": true,
-          "HNLT.HVFASystem.control.bSetStatusOnAlgorithm": false
+          "HNLT.HVFASystem.control.bSetStatusOnAlgorithm": false,
+          "HNLT.HVFASystem.localSetParameters.bLoadingAlgorithm" : true,
+          "HNLT.HVFASystem.setSetPoint.fSetPointAlgorithm": 70,
+          "HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated" : false,
+          "HNLT_CN.InnerCapillaryTubeMats.control.bSetStatusOnAlgorithm" : false,
+          "HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated" : false,
+          "HNLT_CN.UnderfloorHeatingSystem.control.bSetStatusOnAlgorithm" : false
         },
         "close": {
           "HNHT_HNLT.HeatExchanger1System.control.bAlgorithmModeActivated": false,
@@ -634,7 +682,13 @@
           "HNLT_CN.HeatPumpSystem.control.bSetStatusOnAlgorithm": false,
           "HNLT.HVFASystem.control.bAlgorithmModeActivated": false,
           "HNLT.HVFASystem.control.bSetStatusOnAlgorithm": false,
-          "Strategy.localSetParameters.bProductionModeActivated": false
+          "HNLT.HVFASystem.localSetParameters.bLoadingAlgorithm" : false,
+          "HNLT.HVFASystem.setSetPoint.fSetPointAlgorithm": 0,
+          "Strategy.localSetParameters.bProductionModeActivated": false,
+          "HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated" : false,
+          "HNLT_CN.InnerCapillaryTubeMats.control.bSetStatusOnAlgorithm" : false,
+          "HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated" : false,
+          "HNLT_CN.UnderfloorHeatingSystem.control.bSetStatusOnAlgorithm" : false
         }
       }
     }
