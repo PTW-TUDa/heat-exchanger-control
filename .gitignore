@@ -1,5 +1,8 @@
 /venv*/
 
+# Data directories
+*results/
+
 *.xls
 *.xlsx
 *.json
