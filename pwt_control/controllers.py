@@ -87,7 +87,7 @@ class PwtController(RuleBased):
         super().__init__(*args, **kwargs)
         self.actions_order = self.get_env().get_attr("state_config", 0)[0].actions
 
-        self.controller_facade = HysteresisController(lower_threshold=28, upper_threshold=34, inverted=True, init_value=True)
+        self.controller_facade = HysteresisController(lower_threshold=29, upper_threshold=34, inverted=True, init_value=True)
         self.controller_hvfa = HysteresisController(lower_threshold=32, upper_threshold=36, inverted=True)
         self.controller_hnlt_consumers = HysteresisController(lower_threshold=27, upper_threshold=30, inverted=True)
 
@@ -97,11 +97,13 @@ class PwtController(RuleBased):
         if observation["pwt_system_state"] != 4 or observation["hnht_algorithm_permission"] == 0:
             action["HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"] = 0
         else:
-            action["HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"] = float(-(
-                observation["hex1_thermal_load"]
-                + observation["static_heating_thermal_load"]
-                + observation["central_machine_heating_thermal_load"]
-            ))
+            hex1_load = np.asarray(observation["hex1_thermal_load"]).item()
+            static_heating_load = np.asarray(observation["static_heating_thermal_load"]).item()
+            central_machine_load = np.asarray(observation["central_machine_heating_thermal_load"]).item()
+
+            action["HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"] = -(
+                hex1_load + static_heating_load + central_machine_load
+            )
         # action productionmode
         # action["Strategy.localSetParameters.bProductionModeActivated"] = observation["bproductionmodeactivated"]
         action["Strategy.localSetParameters.bProductionModeActivated"] = bool(np.asarray(observation["bproductionmodeactivated"]).item())
