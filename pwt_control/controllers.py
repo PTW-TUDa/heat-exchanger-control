@@ -74,8 +74,8 @@ class PwtController(RuleBased):
     Each system switches on/off at defined thresholds to avoid rapid toggling.
 
     Activation thresholds
-    Consumers: ON ≥ 30 °C, OFF ≤ 27 °C
-    AFA: ON ≥ 34 °C, OFF ≤ 28 °C (starts ON) (set point is fixed at 32 °C)
+    Consumers: ON ≥ 30 °C, OFF ≤ 28 °C
+    AFA: ON ≥ 34 °C, OFF ≤ 29 °C (starts ON) (set point is fixed at 32 °C)
     HVFA: ON ≥ 36 °C, OFF ≤ 32 °C
     Temperature sequence
     Rising temperature:
@@ -89,7 +89,7 @@ class PwtController(RuleBased):
 
         self.controller_facade = HysteresisController(lower_threshold=29, upper_threshold=34, inverted=True, init_value=True)
         self.controller_hvfa = HysteresisController(lower_threshold=32, upper_threshold=36, inverted=True)
-        self.controller_hnlt_consumers = HysteresisController(lower_threshold=27, upper_threshold=30, inverted=True)
+        self.controller_hnlt_consumers = HysteresisController(lower_threshold=28, upper_threshold=30, inverted=True)
 
     def control_rules(self, observation):
         action = dict.fromkeys(self.actions_order, None)  # get a dict with all action names set to None
