@@ -86,7 +86,6 @@ codespell:
     - codespell --version
     - codespell
 
-
 # Publish the python package to the local Gitlab registry
 deploy-local:
   stage: deploy
