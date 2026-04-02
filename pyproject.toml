@@ -21,7 +21,6 @@ requires-poetry = ">=2.0"
 # Additional dependencies for development
 eta-ctrl = {git = "https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/eta-ctrl.git", rev = "e6db69b2c3e417f1fb8fa042482c5c615d7c8011"}
 numpy = "^2.3.3"
-pywin32 = "^311"
 
 [tool.poetry.group.dev.dependencies]
 # Linting and formatting
