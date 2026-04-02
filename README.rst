@@ -1,180 +1,170 @@
-ETA General Python Project
-==========================
-
-This repository provides a basic setup for a Python project using Poetry, including GitLab CI/CD.
-Suitable for most Python projects.
-For experiments using ``eta-ctrl``, use the dedicated `ETA Experiment Template <https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/templates/eta-experiment-project>`_ instead.
-
-Usage guide
+PWT Control
 ===========
 
-1. **Copy** the template
+This repository contains a rule-based ``eta-ctrl`` experiment for the
+heat net high temperature (HNHT) -> heat net low temperature (HNLT) heat exchanger at the ETA Factory.
 
-  - Copy all files and directories from this template to your new project.
+The experiment is intended to run against the live plant. It computes a heat
+exchanger setpoint from scenario-based thermal loads and coordinates HNLT
+recooling components with hysteresis logic to avoid losing the algorithm permission.
 
-2. **Rename and Configure**:
+.. warning::
 
-  - Rename the `eta_general_python_project` directory to your actual project name.
-  - Update pyproject.toml with your:
+   This project targets a live experiment. Starting the controller connects
+   to the physical system and write actuator values. Only run it when the plant
+   is prepared for the experiment and the required permissions are available.
 
-    - ``name``, ``version``, ``description``
-    - ``authors``, ``keywords``, ``dependencies``
-  
-3. **Initialize** the environment:
+Purpose
+=======
 
-  - If you haven't already installed Poetry, see their `installation docs <https://python-poetry.org/docs/#installation>`_
+The repository packages a small but complete control experiment:
 
-  - Sync dependencies::
+- ``pwt_control/controllers.py`` implements the rule-based controller.
+- ``pwt_control/environments/pwt.py`` defines the live ``eta-ctrl`` environment.
+- ``pwt_control/aae_experiment.toml`` configures the experiment run.
+- ``pwt_control/environments/pwt_state_config.toml`` maps observed and controlled signals.
+- ``pwt_control/scenarios/ETAFactory_HNHT_ScenarioData_LiveScenario.csv`` provides the scenario inputs used during the run.
 
-        poetry sync
+The main objective is to operate the HNHT/HNLT heat exchanger and the
+associated recooling path in a deterministic and transparent way.
 
-  - Install pre-commit hooks::
+Control Strategy
+================
 
-        poetry run pre-commit install
+The controller performs two tasks each cycle.
 
-Recommended GitLab Configuration
-================================
+1. Heat exchanger power request
 
-Naming convention
------------------
+   If the PWT system is in operating state ``4`` and HNHT algorithm permission
+   is enabled, the controller sets
+   ``HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm`` to
+   the negative sum of:
 
-GitLab Project Title (project name):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   - ``hex1_thermal_load``
+   - ``static_heating_thermal_load``
+   - ``central_machine_heating_thermal_load``
 
-- Use title case (capitalize words)
-- Spaces are allowed
-- Example: ``ETA General Python Project``
+   If the plant is not in the required state, the setpoint is forced to ``0``.
 
-Python Package Slug (project slug):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. Recooling coordination on HNLT
 
-- Used for the repository URL and local directory name
-- Use lowercase letters
-- Use hyphens (-)
-- Example: ``eta-general-python-project``
+   The HNLT mid-buffer temperature
+   ``HNLT.localState.fMidTemperature`` drives three hysteresis controllers:
 
-Python Package Directory (import name):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   - HNLT consumers: ON at ``>= 30 degC``, OFF at ``<= 28 degC``
+   - outer facade capillary tube mats (AFA): ON at ``>= 34 degC``, OFF at ``<= 29 degC``
+   - high volume fly ash thermal storage (HVFA): ON at ``>= 36 degC``, OFF at ``<= 32 degC``
 
-- Used as the actual Python package folder name inside the repo
-- Use lowercase letters
-- Use underscores (_)
-- Example: ``eta_general_python_project``
+   This creates a staged recooling sequence:
 
-Project Information Naming Convention:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   - Rising temperature: consumers -> AFA -> HVFA
+   - Falling temperature: HVFA -> AFA -> consumers
 
-- **Option 1 - Thesis (Master/Bachelor/Student Project)**
+The production mode flag is also forwarded from the scenario input to the live
+system.
 
-  **Format**::
+Repository Layout
+=================
 
-    StartYear.StartMonth-Type of Work (MT/BT/SA)-Student Name-Topic-Research Associate Initials
+::
 
-  **Description**:
+   pwt-control/
+   |- pwt_control/
+   |  |- aae_experiment.toml
+   |  |- controllers.py
+   |  |- main.py
+   |  |- environments/
+   |  |  |- pwt.py
+   |  |  `- pwt_state_config.toml
+   |  `- scenarios/
+   |     `- ETAFactory_HNHT_ScenarioData_LiveScenario.csv
+   |- pyproject.toml
+   `- .gitlab-ci.yml
 
-  - **StartYear.StartMonth**: two-digit year and month of project start (e.g. ``16.01`` for January 2016)
-  - **Type of Work (MT/BT/SA)**: type of work (``MT`` = Master Thesis, ``BT`` = Bachelor Thesis, ``SA`` = Student Project)
-  - **Student Name**: surname of the student
-  - **Topic**: short, descriptive project title
-  - **Research Associate Initials**: initials of the supervising research associate
+Setup
+=====
 
-  **Example**::
+Prerequisites
+-------------
 
-    16.01-MT-Mustermann-Sample Thesis Machine Tool Optimisation-XY
+- Python ``3.11``
+- Poetry ``>= 2.0``
+- Access to the PTW GitLab instance hosting the ``eta-ctrl`` dependency
+- Access rights for the target ETA live environment and signal endpoints
 
-  ---
+Install
+-------
 
-- **Option 2 - Project Assignment According to Proposal Structure**
+Sync the project environment with Poetry::
 
-  **Format**::
+   poetry sync
 
-    Consortium Project Acronym-Work Package Number-Title of the Work Package
+Install development hooks if desired::
 
-  **Description**:
+   poetry run pre-commit install
 
-  - **Consortium Project Acronym**: e.g. ``SynErgie``
-  - **Work Package Number**: official work package ID from the proposal (e.g. ``MS III.2.9.4``)
-  - **Title of the Work Package**: descriptive title according to the proposal
+Experiment Configuration
+========================
 
-  **Example**::
+The live experiment is configured in ``pwt_control/aae_experiment.toml``.
 
-    SynErgie-MS III.2.9.4-Produktionsanlagen flexibilisiert und Methodik für Anlagenpools erweitert
+Important settings:
 
+- sampling time: ``60 s``
+- configured experiment window: ``2026-01-01 00:00`` to ``2026-01-04 23:59``
+- episode duration: ``259200 s`` (3 days)
+- environment class: ``environments.pwt.Pwt``
+- agent class: ``controllers.PwtController``
+- scenario file: ``ETAFactory_HNHT_ScenarioData_LiveScenario.csv``
 
+The signal mapping for observations and actions is defined in
+``pwt_control/environments/pwt_state_config.toml``.
 
-Settings
-----------
+Running The Experiment
+======================
 
-Branch Management
-~~~~~~~~~~~~~~~~~~
-- **Default Branch**: Set ``development`` as the default branch
-  *(Repository -> Branch defaults)*
-- **Protected Branches**:
-  - Protect both ``development`` and ``main``
-  - Restrict write access to **Maintainers**
-  *(Repository -> Protected branches)*
-- **Protected Tags**:
-  - Add wildcard pattern ``v*`` (for version tags)
-  - Restrict creation to **Maintainers**
-  *(Repository -> Protected tags)*
+Start the controller with:
 
-Merge Request Settings
-~~~~~~~~~~~~~~~~~~~~~~~
-- **Squash Commits**: Set to *"Encourage"*
-  *(Merge Requests -> Squash commits option)*
-- **Merge Checks**:
-  - Require *"Pipelines must succeed"* before merging
-  *(Merge Requests -> Merge checks)*
+::
 
-Pipeline Configuration
-~~~~~~~~~~~~~~~~~~~~~~~
-- Disable *"Public pipelines"* to restrict pipeline visibility
-  *(CI/CD -> General Pipelines)*
+   poetry run python -m pwt_control.main
 
+This creates an ``EtaCtrl`` experiment from the package root and starts one
+play run with:
 
+- series name: ``pwt_control``
+- run name: ``vergleichs_run``
 
-GitLab CI/CD
-==============
+Outputs
+=======
 
-Additional Tools
------------------
-These tools are used to improve code quality. They are run in pipelines and also in pre-commit.
+After a run, the custom environment render step writes the recorded episode data
+to a CSV file in the experiment results directory generated by ``eta-ctrl``.
 
-- **ruff**: Improves the code quality by linting and formatting it
-- **codespell**: Checks for spelling mistakes (english only)
-- **mypy**: Static type checking
+The exported file:
 
-Pipelines (CI)
----------------
-The pipeline consists of four stages:
+- contains the logged state history for the episode
+- flattens scalar numpy values before export
+- uses ``;`` as separator and ``,`` as decimal mark
 
-1. **setup**: Dependency caching for Poetry and pip
-2. **check**: Static analysis and linting
-3. **test**: Test the code using pytest
-4. **deploy**: Publish Python package to the local GitLab registry
+Notes For Operators
+===================
 
-It automatically runs on:
+- Verify that the live plant is in the intended operating mode before starting.
+- Check that scenario values and expected signal IDs match the current ETA setup.
+- Confirm that algorithm permissions on the live system are available.
+- Review the hysteresis thresholds in ``pwt_control/controllers.py`` before using the controller for a new campaign.
 
-- New commits in Merge Requests
-- Push to the default branch
-- Tag creation
+Development
+===========
 
-The **deploy** stage is only run when a version tag is created.
+Common local checks:
 
-Each job specified in ``.gitlab-ci.yml`` will run and show whether it was successful or not.
-Merge Requests will be unable to merge until the pipeline passes.
-Every job is optional, but recommended.
+::
 
+   poetry run ruff check .
+   poetry run ruff format --check .
+   poetry run mypy pwt_control
 
-Deployment (CD)
-----------------
-All deployments originate from the ``main`` branch.
-Ensure the version number in ``pyproject.toml`` is updated.
-Packages are automatically published to GitLab's Package Registry when a new version tag is pushed.
-Version tags **must** follow semantic versioning: `vX.Y.Z`, e.g. `v1.0.0`.
-They can be created in the GitLab web interface or via terminal::
-
-    git switch main
-    git pull
-    git tag -a v1.0.0 -m "Release version 1.0.0"
-    git push origin v1.0.0
+There are currently no repository-local tests for the control logic, so changes
+should be validated carefully before use on the live system.
