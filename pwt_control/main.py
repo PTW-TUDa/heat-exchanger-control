@@ -10,7 +10,7 @@ def experiment() -> None:
     CAUTION: This is a live experiment, starting this file will connect to the physical heat exchanger!"""
     get_logger(level=1, log_format="logname")
     root_path = pathlib.Path(__file__).parent
-    experiment = EtaCtrl(root_path=root_path, config_relpath="", config_name="pwt_config")
+    experiment = EtaCtrl(root_path=root_path, config_name="experiment_config")
     experiment.play(series_name="pwt_control", run_name="vergleichs_run")
 
 
