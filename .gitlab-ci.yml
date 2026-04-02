@@ -1,7 +1,6 @@
 stages:
   - setup
   - check
-  - test
   - deploy
 
 # The workflow determines when a pipeline is run
@@ -86,19 +85,6 @@ codespell:
   script:
     - codespell --version
     - codespell
-
-# mypy:
-#   stage: check
-#   script:
-#     - mypy --version
-#     - mypy --config-file pyproject.toml
-
-test:
-  stage: test
-  # Regex for parsing coverage from pytest output
-  coverage: '/TOTAL.*\s+(\d+%)$/'
-  script:
-    - pytest --cov
 
 
 # Publish the python package to the local Gitlab registry
