@@ -1,10 +1,10 @@
 from eta_ctrl.agents.rule_based import RuleBased
-from numpy import asarray
 import numpy as np
 from logging import getLogger
 
 
 log = getLogger(__name__)
+
 
 class HysteresisController:
     """
@@ -65,6 +65,7 @@ class HysteresisController:
 
         return bool(self.output)
 
+
 class PwtController(RuleBased):
     """
     This controller sets the HEX1 set point and activates/deactivates the production mode.
@@ -83,17 +84,20 @@ class PwtController(RuleBased):
     Decreasing temperature:
     HVFA → AFA → Consumers
     """
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.actions_order = self.get_env().get_attr("state_config", 0)[0].actions
 
-        self.controller_facade = HysteresisController(lower_threshold=29, upper_threshold=34, inverted=True, init_value=True)
+        self.controller_facade = HysteresisController(
+            lower_threshold=29, upper_threshold=34, inverted=True, init_value=True
+        )
         self.controller_hvfa = HysteresisController(lower_threshold=32, upper_threshold=36, inverted=True)
         self.controller_hnlt_consumers = HysteresisController(lower_threshold=28, upper_threshold=30, inverted=True)
 
     def control_rules(self, observation):
         action = dict.fromkeys(self.actions_order, None)  # get a dict with all action names set to None
-        
+
         if observation["pwt_system_state"] != 4 or observation["hnht_algorithm_permission"] == 0:
             action["HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"] = 0
         else:
@@ -106,16 +110,22 @@ class PwtController(RuleBased):
             )
         # action productionmode
         # action["Strategy.localSetParameters.bProductionModeActivated"] = observation["bproductionmodeactivated"]
-        action["Strategy.localSetParameters.bProductionModeActivated"] = bool(np.asarray(observation["bproductionmodeactivated"]).item())
+        action["Strategy.localSetParameters.bProductionModeActivated"] = bool(
+            np.asarray(observation["bproductionmodeactivated"]).item()
+        )
 
-        #control recooling
+        # control recooling
         mid_buffer_temp = observation["HNLT.localState.fMidTemperature"]
 
-        action["HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm"] = self.controller_facade.get_action(mid_buffer_temp)
+        action["HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm"] = self.controller_facade.get_action(
+            mid_buffer_temp
+        )
         action["HNLT.HVFASystem.control.bSetStatusOnAlgorithm"] = self.controller_hvfa.get_action(mid_buffer_temp)
 
-        action_consumer = self.controller_hnlt_consumers.get_action(mid_buffer_temp) #true, if consumer can consumer energy
-        #invert signal to deactivate algorithm mode
+        action_consumer = self.controller_hnlt_consumers.get_action(
+            mid_buffer_temp
+        )  # true, if consumer can consumer energy
+        # invert signal to deactivate algorithm mode
         action["HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated"] = not action_consumer
         action["HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated"] = not action_consumer
 
@@ -136,38 +146,3 @@ class PwtController(RuleBased):
         actions = list(action.values())
 
         return np.array(actions)
-
-
-PREHEATING_ACTION_VALUES = {
-    "HNHT_HNLT.HeatExchanger1System.control.bSetStatusOnAlgorithm": True,
-    "HNHT_HNLT.HeatExchanger1System.PU215.control.bSetStatusOnAlgorithm": False,
-    "HNHT_HNLT.HeatExchanger1System.RV315.control.bSetStatusOnAlgorithm": True,
-    "HNHT_HNLT.HeatExchanger1System.RV315.localSetParameters.nControlModeAlgorithm": 0,
-    "HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm": 100.0,
-    "HNHT.CHP2System.control.bSetStatusOnAlgorithm": False,
-    "HNHT.CHP2System.PU32x.control.bSetStatusOnAlgorithm": True,
-    "HNHT.CHP2System.PU32x.setSetPoint.fSetPointAlgorithm": 100.0,
-    "HNHT.CHP2System.RV32x.control.bSetStatusOnAlgorithm": True,
-    "HNHT.CHP2System.RV32x.localSetParameters.nControlModeAlgorithm": 0,
-    "HNHT.CHP2System.RV32x.setSetPoint.fSetPointAlgorithm": 100.0,
-    "HNHT.CHP2System.SV32x.control.bSetStatusOnAlgorithm": True,
-    "HNHT.VSIStorageSystem.control.bSetStatusOnAlgorithm": True,
-    "HNHT.VSIStorageSystem.localSetParameters.bLoadingAlgorithm": True,
-    "HNHT.VSIStorageSystem.SV307.control.bSetStatusOnAlgorithm": True,
-    "HNHT.VSIStorageSystem.SV307.setSetPoint.fSetPointAlgorithm": 100.0,
-}
-
-
-class PrepareHnht(RuleBased):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.actions_order = self.get_env().get_attr("state_config", 0)[0].actions
-
-    def control_rules(self, observation):
-        missing_actions = [name for name in self.actions_order if name not in PREHEATING_ACTION_VALUES]
-        if missing_actions:
-            msg = f"Missing action values for: {', '.join(missing_actions)}"
-            raise KeyError(msg)
-
-        action = [PREHEATING_ACTION_VALUES[name] for name in self.actions_order]
-        return asarray(action, dtype=float)
