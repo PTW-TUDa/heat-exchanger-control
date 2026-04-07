@@ -1,5 +1,7 @@
 Heat Exchanger Control
 ===========
+.. image:: https://zenodo.org/badge/1199429118.svg
+  :target: https://doi.org/10.5281/zenodo.19450642
 
 This repository contains a rule-based ``eta-ctrl`` experiment for the
 heat net high temperature (HNHT) -> heat net low temperature (HNLT) heat exchanger at the ETA Factory.
