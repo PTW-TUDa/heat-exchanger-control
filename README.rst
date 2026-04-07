@@ -1,8 +1,9 @@
-PWT Control
+Heat Exchanger Control
 ===========
 
 This repository contains a rule-based ``eta-ctrl`` experiment for the
 heat net high temperature (HNHT) -> heat net low temperature (HNLT) heat exchanger at the ETA Factory.
+Note: PWT stands for Plattenwärmetauscher, the German term for plate heat exchanger.
 
 The experiment is intended to run against the live plant. It computes a heat
 exchanger setpoint from scenario-based thermal loads and coordinates HNLT
@@ -19,11 +20,11 @@ Purpose
 
 The repository packages a small but complete control experiment:
 
-- ``pwt_control/controllers.py`` implements the rule-based controller.
-- ``pwt_control/environments/pwt.py`` defines the live ``eta-ctrl`` environment.
-- ``pwt_control/aae_experiment.toml`` configures the experiment run.
-- ``pwt_control/environments/pwt_state_config.toml`` maps observed and controlled signals.
-- ``pwt_control/scenarios/ETAFactory_HNHT_ScenarioData_LiveScenario.csv`` provides the scenario inputs used during the run.
+- ``heat_exchanger_control/controllers.py`` implements the rule-based controller.
+- ``heat_exchanger_control/environments/pwt.py`` defines the live ``eta-ctrl`` environment.
+- ``heat_exchanger_control/aae_experiment.toml`` configures the experiment run.
+- ``heat_exchanger_control/environments/pwt_state_config.toml`` maps observed and controlled signals.
+- ``heat_exchanger_control/scenarios/ETAFactory_HNHT_ScenarioData_LiveScenario.csv`` provides the scenario inputs used during the run.
 
 The main objective is to operate the HNHT/HNLT heat exchanger and the
 associated recooling path in a deterministic and transparent way.
@@ -68,8 +69,8 @@ Repository Layout
 
 ::
 
-   pwt-control/
-   |- pwt_control/
+   heat-exchanger-control/
+   |- heat_exchanger_control/
    |  |- aae_experiment.toml
    |  |- controllers.py
    |  |- main.py
@@ -106,7 +107,7 @@ Install development hooks if desired::
 Experiment Configuration
 ========================
 
-The live experiment is configured in ``pwt_control/aae_experiment.toml``.
+The live experiment is configured in ``heat_exchanger_control/aae_experiment.toml``.
 
 Important settings:
 
@@ -118,7 +119,7 @@ Important settings:
 - scenario file: ``ETAFactory_HNHT_ScenarioData_LiveScenario.csv``
 
 The signal mapping for observations and actions is defined in
-``pwt_control/environments/pwt_state_config.toml``.
+``heat_exchanger_control/environments/pwt_state_config.toml``.
 
 Running The Experiment
 ======================

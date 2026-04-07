@@ -1,0 +1,46 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: heat-exchanger-control
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - family-names: Clement
+    given-names: Andreas
+    email: a.clement@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0009-0005-6675-1223'
+    affiliation: >-
+      Institute for Production Management, Technology and
+      Machine Tools (PTW), Technical University of Darmstadt
+  - given-names: Jan-Niklas
+    family-names: Witt
+    email: j.witt@ptw.tu-darmstadt.de
+    affiliation: >-
+      Institute for Production Management, Technology and
+      Machine Tools (PTW), Technical University of Darmstadt
+    orcid: 'https://orcid.org/0009-0004-7312-4220'
+  - given-names: Tobias
+    family-names: Lademann
+    email: t.lademann@ptw.tu-darmstadt.de
+    affiliation: >-
+      Institute for Production Management, Technology and
+      Machine Tools (PTW), Technical University of Darmstadt
+    orcid: 'https://orcid.org/0009-0001-9430-3912'
+repository-code: 'https://github.com/PTW-TUDa/heat-exchanger-control'
+repository: 'https://github.com/PTW-TUDa/eta-ctrl'
+abstract: >-
+  A simple rule based control system for thermal load
+  simulation in a heat net using a heat exchanger at ETA
+  Factory.
+keywords:
+  - eta-ctrl
+  - industrial control
+  - heat exchanger
+  - eta factory
+  - rule-based control
+license: BSD-2-Clause
+version: 0.0.1
+date-released: '2026-04-07'
