@@ -1,6 +1,6 @@
 [project]
 name = "pwt-control"
-version = "1.0.1"
+version = "0.0.1"
 description = "A simple rule based control system for the HNHT->HNLT heat exchanger at ETA"
 license = "BSD-2-Clause"
 readme = "README.rst"
