@@ -29,6 +29,10 @@ authors:
       Institute for Production Management, Technology and
       Machine Tools (PTW), Technical University of Darmstadt
     orcid: 'https://orcid.org/0009-0001-9430-3912'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.19450642
+    description: Repository
 repository-code: 'https://github.com/PTW-TUDa/heat-exchanger-control'
 repository: 'https://github.com/PTW-TUDa/eta-ctrl'
 abstract: >-
