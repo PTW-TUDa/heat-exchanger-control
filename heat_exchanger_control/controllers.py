@@ -98,7 +98,7 @@ class PwtController(RuleBased):
     def control_rules(self, observation):
         action = dict.fromkeys(self.actions_order, None)  # get a dict with all action names set to None
 
-        if observation["pwt_system_state"] != 4 or observation["hnht_algorithm_permission"] == 0:
+        if observation["pwt_system_state"] != 4:
             action["HNHT_HNLT.HeatExchanger1System.RV315.setSetPoint.fSetPointAlgorithm"] = 0
         else:
             hex1_load = np.asarray(observation["hex1_thermal_load"]).item()
@@ -109,7 +109,6 @@ class PwtController(RuleBased):
                 hex1_load + static_heating_load + central_machine_load
             )
         # action productionmode
-        # action["Strategy.localSetParameters.bProductionModeActivated"] = observation["bproductionmodeactivated"]
         action["Strategy.localSetParameters.bProductionModeActivated"] = bool(
             np.asarray(observation["bproductionmodeactivated"]).item()
         )
@@ -128,6 +127,13 @@ class PwtController(RuleBased):
         # invert signal to deactivate algorithm mode
         action["HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated"] = not action_consumer
         action["HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated"] = not action_consumer
+
+        if not observation["hnht_algorithm_permission"]:
+            # if HNHT has no algorithm permission, recooling of HNLT should be stopped
+            action["HNLT.OuterCapillaryTubeMats.control.bSetStatusOnAlgorithm"] = False
+            action["HNLT.HVFASystem.control.bSetStatusOnAlgorithm"] = False
+            action["HNLT_CN.InnerCapillaryTubeMats.control.bAlgorithmModeActivated"] = False
+            action["HNLT_CN.UnderfloorHeatingSystem.control.bAlgorithmModeActivated"] = False
 
         log.info(action)
 
