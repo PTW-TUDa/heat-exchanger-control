@@ -19,7 +19,7 @@ requires-poetry = ">=2.0"
 # e.g. ^3.9.0: 3.9.0 <= x < 4.0.0 and ~3.9.0: 3.9.0 <= x < 3.10.0
 [tool.poetry.dependencies]
 # Additional dependencies for development
-eta-ctrl = {git = "https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/eta-ctrl.git", rev = "e6db69b2c3e417f1fb8fa042482c5c615d7c8011"}
+eta-ctrl = "0.3.0"
 numpy = "^2.3.3"
 
 [tool.poetry.group.dev.dependencies]

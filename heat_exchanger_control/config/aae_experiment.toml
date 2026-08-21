@@ -9,10 +9,9 @@ sampling_time = 60  # time in seconds
 episode_duration = 259200  # time in seconds
 n_episodes_play = 1
 use_random_time_slice = false
+scenario_files = [
+    { path = "ETAFactory_HNHT_ScenarioData_LiveScenario.csv", interpolation_method = "ffill" },
+]
 
-[environment_specific]
+[settings.environment]
 max_errors = 180
-
-[[environment_specific.scenario_files]]
-path = "ETAFactory_HNHT_ScenarioData_LiveScenario.csv"
-interpolation_method = "ffill"

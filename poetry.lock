@@ -1043,13 +1043,15 @@ tests = ["backports.strenum ; python_version < \"3.11\"", "environs[django]", "p
 
 [[package]]
 name = "eta-ctrl"
-version = "0.2.0"
-description = "A framework for researching energy optimization of factory operations."
+version = "0.3.0"
+description = "A modular framework for rolling-horizon operational control using a Gym-compatible agent–environment abstraction. The framework enables integration of optimization-based agents (Pyomo), reinforcement learning agents (Stable-Baselines3), heuristic search methods, and rule-based controllers. Environments can be instantiated from FMI-compliant simulations, mathematical models, or real-world system interfaces."
 optional = false
-python-versions = ">=3.11,<3.13"
+python-versions = "<3.13,>=3.11"
 groups = ["main"]
-files = []
-develop = false
+files = [
+    {file = "eta_ctrl-0.3.0-py3-none-any.whl", hash = "sha256:7d6ed27f101a9c877c74b9da116a88a8608abe9a92774314c3fd2ae30767472f"},
+    {file = "eta_ctrl-0.3.0.tar.gz", hash = "sha256:10fd658d93e01f1dde130b65680c063111564c6d2d7d3e08d3bcb19b006e1cfd"},
+]
 
 [package.dependencies]
 attrs = ">=25.3.0,<27.0.0"
@@ -1068,14 +1070,8 @@ tomli-w = ">=1.2.0,<2.0.0"
 torch = ">=2.6.0,<3.0.0"
 
 [package.extras]
-docs = ["sphinx (>=8.0.0,<10.0.0)", "sphinx-copybutton (>=0.5.2,<1.0.0)", "sphinx-rtd-theme (>=3.0.0,<4.0.0)"]
+docs = ["autodoc-pydantic (>=2.2.0,<3.0.0)", "sphinx (>=8.0.0,<10.0.0)", "sphinx-copybutton (>=0.5.2,<1.0.0)", "sphinx-rtd-theme (>=3.0.0,<4.0.0)"]
 examples = ["cplex (>=22.1.2.0,<23.0.0.0)", "keyboard (>=0.13.5,<0.14.0)", "matplotlib (>=3.10.0,<3.12.0)", "onnxruntime (>=1.24.0,<1.25.0)", "pygame (>=2.6.0,<2.7.0)", "pyglet (>=2.1.0,<2.2.0)"]
-
-[package.source]
-type = "git"
-url = "https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/eta-ctrl.git"
-reference = "e6db69b2c3e417f1fb8fa042482c5c615d7c8011"
-resolved_reference = "e6db69b2c3e417f1fb8fa042482c5c615d7c8011"
 
 [[package]]
 name = "eta-nexus"
@@ -5339,4 +5335,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11.15, <3.13.0"
-content-hash = "360b7ebedadc418b2a91e8f86d5edacf8442e68835635ff8b213d726d3078fe0"
+content-hash = "afaa9fb3a07186beef12666f08de5c2c5b9112bca19cbf8b80d81e57820104f9"
